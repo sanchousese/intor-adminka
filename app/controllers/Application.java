@@ -9,6 +9,7 @@ import ua.intor.api.helpers.UserJob;
 import ua.intor.api.helpers.UserProblem;
 import ua.intor.exceptions.UserWithSuchLoginNotFoundException;
 
+@With(Secure.class)
 public class Application extends Controller {
 
     private static IntorModelBasicAPI api = ModelSingleton.getInstance().getApi();
