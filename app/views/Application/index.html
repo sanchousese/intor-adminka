@@ -1,4 +1,20 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-#{welcome /}
+<div align="center">
+#{form @submit()}
+    <label for="username" class="control-label">Ім'я користувача</label>
+    <br/>
+    <br/>
+    #{field 'login'}
+        <input class="form-control" type="text" name="login" id="username" required>
+        <span class="error">${field?.error}</span>
+    #{/field}
+
+    <br/>
+    <br/>
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-success">
+    </div>
+#{/form}
+</div>
