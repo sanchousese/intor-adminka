@@ -4,3 +4,5 @@ intor-adminka.iws
 /test
 /lib
 /tmp
+/bower_components
+/node_modules
