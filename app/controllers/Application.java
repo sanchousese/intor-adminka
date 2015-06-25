@@ -7,7 +7,10 @@ import ua.intor.api.helpers.UserCategory;
 import ua.intor.api.helpers.UserEcoMissionState;
 import ua.intor.api.helpers.UserJob;
 import ua.intor.api.helpers.UserProblem;
+import ua.intor.exceptions.HoneyGeneratorIsNotResponding;
+import ua.intor.exceptions.HoneyGeneratorNotFoundException;
 import ua.intor.exceptions.UserWithSuchLoginNotFoundException;
+import ua.intor.models.SystemStats;
 
 @With(Secure.class)
 public class Application extends Controller {
@@ -15,7 +18,16 @@ public class Application extends Controller {
     private static IntorModelBasicAPI api = ModelSingleton.getInstance().getApi();
 
     public static void index() {
-        render();
+        try {
+            SystemStats stats = api.getSystemStats();
+            render(stats);
+        } catch (HoneyGeneratorIsNotResponding honeyGeneratorIsNotResponding) {
+            honeyGeneratorIsNotResponding.printStackTrace();
+            error(honeyGeneratorIsNotResponding);
+        } catch (HoneyGeneratorNotFoundException e) {
+            e.printStackTrace();
+            error(e);
+        }
     }
 
     public static void submit(String login) {
