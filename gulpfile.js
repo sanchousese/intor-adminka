@@ -53,11 +53,12 @@ gulp.task('clean', function(cb) {
 //     .pipe(gulp.dest('public/fonts/bootstrap'));
 // });
 
-// gulp.task('watch', function(){
-//    gulp.watch(paths.css_watch, ['styles']);
-//    gulp.watch(paths.js_watch, ['scripts']);
-// });
+gulp.task('watch', function(){
+   gulp.watch(paths.css_watch, ['styles']);
+});
 
 // // DEFAULT
+
+gulp.task('default', ['styles', 'watch']);
 
 // gulp.task('default', ['styles', 'icons', 'icons-bootstrap', 'scripts', 'watch', 'others']);

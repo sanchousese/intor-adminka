@@ -1,23 +1,61 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-<p>Кількість меду в генераторі меду: <b>${stats.honeyInGeneratorAmount}</b></p>
-<p>Кількість користувачів: <b>${stats.numberOfUsers}</b></p>
-<p>Кількість торів: <b>${stats.numberOfTors}</b></p>
-<div align="center">
-#{form @submit()}
-    <label for="username" class="control-label">Ім'я користувача</label>
-    <br/>
-    <br/>
-    #{field 'login'}
-        <input class="form-control" type="text" name="login" id="username" required>
-        <span class="error">${field?.error}</span>
-    #{/field}
 
-    <br/>
-    <br/>
-    <div class="form-group">
-        <input type="submit" value="Submit" class="btn btn-success">
+<div class="row content-padded">   
+
+    <div class="col-md-4">
+        <ul class="list-group margin-top">
+            <li class="list-group-item">
+                <span>
+                    Кількість меду в генераторі 
+                    <span class="badge pull-right">${stats.honeyInGeneratorAmount}</span>
+                </span>
+            </li>
+            <li class="list-group-item">
+                <span>
+                    Кількість користувачів
+                    <span class="badge pull-right">${stats.numberOfUsers}</span>
+                </span>
+            </li>
+            <li class="list-group-item">
+                <span>
+                    Кількість торів
+                    <span class="badge pull-right">${stats.numberOfTors}</span>
+                </span>
+            </li>
+        </ul>
     </div>
-#{/form}
+    
+    <div class="col-md-4">
+
+        #{form @submit()}
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                Будь-ласка, виконайте вхід
+            </div>
+
+            <div class="panel-body">
+                <div class="form-group">
+                    <label for="username" class="control-label">Ім'я користувача:</label>
+                    #{field 'login'}
+                    <input class="form-control" type="text" name="login" id="username" required>
+                    <span class="error">${field?.error}</span>
+                    #{/field}
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Вхід" class="btn btn-success">
+                </div>
+            </div>
+        </div>
+
+        #{/form}
+    </div>
+
+    <div class="col-md-4">
+        
+    </div> 
+
 </div>

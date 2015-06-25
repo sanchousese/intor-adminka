@@ -1,58 +1,72 @@
 #{extends 'main.html' /}
 #{set title:'User' /}
 
-<h1 align="center">${login}</h1>
+<h2 class="text-center thin">Привіт, ${login}</h2>
 
-<table align="center" style="width: 40%; margin-left: 35%; margin-right: 20%">
-    <tr>
-        <td><p>Екомісія</p></td>
-        <td><p><b>${ecoMission}</b></p></td>
-        <td>
-            #{if ecoMission}
-                <a href="@{Application.setEcoMission(login, false)}"><button>Скасувати екомісію</button></a>
-            #{/if}
-            #{else}
-                <a href="@{Application.setEcoMission(login, true)}"><button>Підтвердити екомісію</button></a>
-            #{/else}
-        </td>
-    </tr>
+<div class="row margin-top-max">
+    <div class="col-md-offset-3 col-md-6">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Статус</th>
+                <th class="text-center">Опції</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Екомісія</td>
+                    <td class="bold">${ecoMission}</td>
+                    <td class="text-center">
+                        #{if ecoMission}
+                        <a href="@{Application.setEcoMission(login, false)}" class="btn btn-danger">Скасувати екомісію</a>
+                        #{/if}
+                        #{else}
+                        <a href="@{Application.setEcoMission(login, true)}" class="btn btn-success">Підтвердити екомісію</a>
+                        #{/else}
+                    </td>
+                </tr>
 
-    <tr>
-        <td><p>Категорія</p></td>
-        <td><p><b>${category}</b></p></td>
-        <td>
-        #{if category}
-            <a href="@{Application.setCategory(login, false)}"><button>Скасувати категорію</button></a>
-        #{/if}
-        #{else}
-            <a href="@{Application.setCategory(login, true)}"><button>Підтвердити категорію</button></a>
-        #{/else}
-        </td>
-    </tr>
+                <tr>
+                    <td>Категорія</td>
+                    <td class="bold">${category}</td>
+                    <td class="text-center">
+                        #{if category}
+                        <a href="@{Application.setCategory(login, false)}" class="btn btn-danger">Скасувати категорію</a>
+                        #{/if}
+                        #{else}
+                        <a href="@{Application.setCategory(login, true)}" class="btn btn-success">Підтвердити категорію</a>
+                        #{/else}
+                    </td>
+                </tr>
 
-    <tr>
-        <td><p>Підтримка</p></td>
-        <td><p><b>${problem}</b></p></td>
-        <td>
-        #{if problem}
-            <a href="@{Application.setProblem(login, false)}"><button>Скасувати підтримку</button></a>
-        #{/if}
-        #{else}
-            <a href="@{Application.setProblem(login, true)}"><button>Підтвердити підтримку</button></a>
-        #{/else}
-        </td>
-    </tr>
+                <tr>
+                    <td>Підтримка</td>
+                    <td class="bold">${problem}</td>
+                    <td class="text-center">
+                        #{if problem}
+                        <a href="@{Application.setProblem(login, false)}" class="btn btn-danger">Скасувати підтримку</a>
+                        #{/if}
+                        #{else}
+                        <a href="@{Application.setProblem(login, true)}" class="btn btn-success">Підтвердити підтримку</a>
+                        #{/else}
+                    </td>
+                </tr>
 
-    <tr>
-        <td><p>Вакансії</p></td>
-        <td><p><b>${job}</b></p></td>
-        <td>
-        #{if job}
-            <a href="@{Application.setJob(login, false)}"><button>Скасувати вакансії</button></a>
-        #{/if}
-        #{else}
-            <a href="@{Application.setJob(login, true)}"><button>Підтвердити вакансії</button></a>
-        #{/else}
-        </td>
-    </tr>
-</table>
+                <tr>
+                    <td>Вакансії</td>
+                    <td class="bold">${job}</td>
+                    <td class="text-center">
+                        #{if job}
+                        <a href="@{Application.setJob(login, false)}" class="btn btn-danger">Скасувати вакансії</a>
+                        #{/if}
+                        #{else}
+                        <a href="@{Application.setJob(login, true)}" class="btn btn-success">Підтвердити вакансії</a>
+                        #{/else}
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
