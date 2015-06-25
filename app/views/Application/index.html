@@ -1,6 +1,9 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
+<p>Кількість меду в генераторі меду: <b>${stats.honeyInGeneratorAmount}</b></p>
+<p>Кількість користувачів: <b>${stats.numberOfUsers}</b></p>
+<p>Кількість торів: <b>${stats.numberOfTors}</b></p>
 <div align="center">
 #{form @submit()}
     <label for="username" class="control-label">Ім'я користувача</label>
